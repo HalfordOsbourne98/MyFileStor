@@ -10,6 +10,10 @@ contract DecentralizedFileStorage {
         require(bytes(_fileName).length > 0, "File name cannot be empty");
         _;
     }
+function uploadFile(string memory _fileName, string memory _fileContent) external validFileName(_fileName) {
+        userFiles[msg.sender].push(_fileName);
+        emit FileUploaded(msg.sender, _fileName, _fileContent);
+    }
 
   
 }
