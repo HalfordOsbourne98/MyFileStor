@@ -16,4 +16,7 @@ function uploadFile(string memory _fileName, string memory _fileContent) externa
     }
 
   
+    function getUserFiles() external view returns (string[] memory) {
+        return userFiles[msg.sender];
+    }
 }
